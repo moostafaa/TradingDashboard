@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 interface TradingPanelProps {
@@ -133,25 +134,6 @@ const TradingPanel: React.FC<TradingPanelProps> = ({ selectedPriceFromOrderBook,
 
   return (
     <div className="bg-gray-800 rounded-md p-4 shadow-sm flex flex-col">
-      {/* Funding & Settlement */}
-      <div className="flex justify-between items-center text-xs mb-4">
-        <span className="text-gray-400">Funding / Settlement</span>
-        <div className="flex items-center space-x-2">
-          <span className="text-red-500">-0.0074% / 04:37:00</span>
-          <span className="text-green-500 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-0.5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l3 3a1 1 0 001.414-1.414L11 9.586V6z" clipRule="evenodd" />
-            </svg>
-            2.33%
-          </span>
-          <button className="text-gray-500 hover:text-gray-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
       {/* Cross/Isolated and Leverage */}
       <div className="flex items-center space-x-2 mb-4">
         {['Cross', 'Isolated'].map((tab) => (
@@ -188,7 +170,9 @@ const TradingPanel: React.FC<TradingPanelProps> = ({ selectedPriceFromOrderBook,
 
       {/* Order Type */}
       <div className="relative mb-4">
+        <label htmlFor="orderType" className="sr-only">Order Type</label>
         <select
+          id="orderType"
           value={orderType}
           onChange={(e) => setOrderType(e.target.value)}
           className="appearance-none w-full bg-gray-700 text-gray-200 py-2 pl-3 pr-8 rounded-md text-sm cursor-pointer focus:outline-none focus:ring-1 focus:ring-orange-500"

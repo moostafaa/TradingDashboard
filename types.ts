@@ -1,16 +1,15 @@
-export interface ChartDataPoint {
-  time: string;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume: number;
-}
 
 export interface OrderBookEntry {
+  price: number; // After parseFloat and aggregation
+  amount: number; // After parseFloat and aggregation
+  total?: number; // Total is calculated client-side for visualization
+}
+
+export interface TradeEntry {
   price: number;
   amount: number;
-  total: number;
+  time: number; // Timestamp
+  buyerIsMaker: boolean; // true if buyer is maker, false if seller is maker
 }
 
 export interface Position {
